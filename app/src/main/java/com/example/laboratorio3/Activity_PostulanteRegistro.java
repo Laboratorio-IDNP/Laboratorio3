@@ -30,6 +30,7 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
         campoFechaNacimiento = (EditText) findViewById(R.id.editTextFechaNacimiento);
         campoColegioPrecedencia = (EditText) findViewById(R.id.editTextColegioProcedencia);
         campoCarreraPostula = (EditText) findViewById(R.id.editTextCarreraPostula);
+
     }
 
     public void registerForActivityResult(View button) {
@@ -41,7 +42,7 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
         String carreraPostula = campoCarreraPostula.getText().toString();
 
         Postulante postulante = new Postulante();
-        postulante.setApellidoMaterno(apellidoPaterno);
+        postulante.setApellidoPaterno(apellidoPaterno);
         postulante.setApellidoMaterno(apellidoMaterno);
         postulante.setNombres(nombres);
         postulante.setFechaNacimiento(fechaNacimiento);
@@ -56,15 +57,15 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
 
         Intent intentActivityMenu = new Intent(this, Activity_Menu.class);
         intentActivityMenu.putExtras(bundleActivityMenu);
+
+        //Lista de postulantes
+        Bundle listaPostulantes = getIntent().getExtras();
+        intentActivityMenu.putExtras(listaPostulantes);
+
+        //Se envia el intent
         startActivity(intentActivityMenu);
 
-        //vaciar campos
-        /*campoApellidoPaterno.setText("");
-        campoApellidoMaterno.setText("");
-        campoNombres.setText("");
-        campoFechaNacimiento.setText("");
-        campoColegioPrecedencia.setText("");
-        campoCarreraPostula.setText("");*/
+
     }
 }
 
