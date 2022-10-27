@@ -29,6 +29,9 @@ public class Activity_PostulanteInfo extends AppCompatActivity {
         if (objectPostulante != null) {
             postulantes = (ArrayList<Postulante>) objectPostulante.getSerializable("postulantes");
         }
+        if (postulantes.size() == 0 ) {
+            result.setText("No hay postulantes registrados");
+        }
     }
 
     public void getResults(View button) {
@@ -47,8 +50,7 @@ public class Activity_PostulanteInfo extends AppCompatActivity {
                     result.setText("No hay resultados");
                 }
             }
-        } if (dni.equals("")) {
-            result.setText("No hay postulantes registrados");
         }
     }
 }
+
