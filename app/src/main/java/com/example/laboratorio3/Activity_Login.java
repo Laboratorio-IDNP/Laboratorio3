@@ -1,13 +1,18 @@
 package com.example.laboratorio3;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Activity_Login extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +20,19 @@ public class Activity_Login extends AppCompatActivity {
     }
 
     public void goToActivityMenu(View view) {
-        Intent intentActivityMenu = new Intent(this, Activity_Menu.class);
-        startActivity(intentActivityMenu);
+        EditText edtUserName = findViewById(R.id.edtUserName);
+        EditText edtPassword = findViewById(R.id.edtUserPassword);
+        TextView txtMessage = findViewById(R.id.txtMessage);
+
+        String user = edtUserName.getText().toString();
+        String password = edtPassword.getText().toString();
+        if(user.equals("admin") && password.equals("12345678")){
+            txtMessage.setText("");
+            Intent intentActivityMenu = new Intent(this, Activity_Menu.class);
+            startActivity(intentActivityMenu);
+        } else {
+            Log.d(TAG,"usuario: " + user + ", Password: " + password);
+            txtMessage.setText("Usuario o contraseña invalidos");
+        }
     }
 }
