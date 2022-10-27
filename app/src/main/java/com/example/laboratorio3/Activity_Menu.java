@@ -36,7 +36,11 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
     public void goToActivityPostulanteInfo(View view) {
+        Bundle bundleListPostulantes = new Bundle();
+        bundleListPostulantes.putSerializable("postulantes", postulantes);
+
         Intent intentActivityPostulanteInfo = new Intent(this, Activity_PostulanteInfo.class);
+        intentActivityPostulanteInfo.putExtras(bundleListPostulantes);
         startActivity(intentActivityPostulanteInfo);
     }
 

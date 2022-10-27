@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class Activity_PostulanteRegistro extends AppCompatActivity {
 
-
+    private EditText campoDni;
     private EditText campoApellidoPaterno;
     private EditText campoApellidoMaterno;
     private EditText campoNombres;
@@ -24,6 +24,7 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postulante_registro);
 
+        campoDni = (EditText) findViewById(R.id.editTextDni);
         campoApellidoPaterno = (EditText) findViewById(R.id.editTextApellidoPaterno);
         campoApellidoMaterno = (EditText) findViewById(R.id.editTextApellidoMaterno);
         campoNombres = (EditText) findViewById(R.id.editTextNombres);
@@ -34,6 +35,7 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
     }
 
     public void registerForActivityResult(View button) {
+        String dni = campoDni.getText().toString();
         String apellidoPaterno = campoApellidoPaterno.getText().toString();
         String apellidoMaterno = campoApellidoMaterno.getText().toString();
         String nombres = campoNombres.getText().toString();
@@ -42,6 +44,7 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
         String carreraPostula = campoCarreraPostula.getText().toString();
 
         Postulante postulante = new Postulante();
+        postulante.setDni(dni);
         postulante.setApellidoPaterno(apellidoPaterno);
         postulante.setApellidoMaterno(apellidoMaterno);
         postulante.setNombres(nombres);
@@ -64,7 +67,6 @@ public class Activity_PostulanteRegistro extends AppCompatActivity {
 
         //Se envia el intent
         startActivity(intentActivityMenu);
-
 
     }
 }
