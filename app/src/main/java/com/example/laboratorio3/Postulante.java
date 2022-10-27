@@ -3,6 +3,7 @@ package com.example.laboratorio3;
 import java.io.Serializable;
 
 public class Postulante implements Serializable {
+    private String dni;
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String nombres;
@@ -13,13 +14,22 @@ public class Postulante implements Serializable {
     public Postulante() {
     }
 
-    public Postulante(String apellidoPaterno, String apellidoMaterno, String nombres, String fechaNacimiento, String colegioPrecedencia, String carreraPostula) {
+    public Postulante(String dni, String apellidoPaterno, String apellidoMaterno, String nombres, String fechaNacimiento, String colegioPrecedencia, String carreraPostula) {
+        this.dni = dni;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.nombres = nombres;
         this.fechaNacimiento = fechaNacimiento;
         this.colegioPrecedencia = colegioPrecedencia;
         this.carreraPostula = carreraPostula;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getApellidoPaterno() {
